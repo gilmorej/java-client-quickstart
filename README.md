@@ -11,6 +11,7 @@ Command Line Java application to act as an HTTP client
 ```
 ./gradlew clean build
 ```
+
 Test results can be found in `build/reports/tests/test` from the root directory. 
 You can navigate this in file explorer in WSL2 by simply running
 ```

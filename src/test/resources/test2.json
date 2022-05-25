@@ -1,0 +1,32 @@
+[
+  {
+    "id": "id1",
+    "balance": 123.45,
+    "currencyCode": "CAD",
+    "accountHolder": {
+      "firstName": "Alice",
+      "lastName": "Jones",
+      "taxNumber": "309813"
+    }
+  },
+  {
+    "id": "id2",
+    "balance": 183033,
+    "currencyCode": "JPY",
+    "accountHolder": {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "taxNumber": "123456"
+    }
+  },
+  {
+    "id": "id3",
+    "balance": 199.99,
+    "currencyCode": "USD",
+    "accountHolder": {
+      "firstName": "Billy",
+      "lastName": "Greene",
+      "taxNumber": "198349"
+    }
+  }
+]

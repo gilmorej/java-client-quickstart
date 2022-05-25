@@ -2,22 +2,18 @@ apply plugin: "application"
 apply plugin: "java"
 apply plugin: "idea"
 
-group = "com.gilmore.auction"
+group = "com.gilmore"
 version = "1.0"
 
 repositories {
     mavenCentral()
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
-
-ext {
-    javaMainClass = "Main"
-}
+sourceCompatibility = 11
+targetCompatibility = 11
 
 application {
-    mainClassName = javaMainClass
+    mainClass.set("Main")
 }
 
 dependencies {
@@ -30,6 +26,7 @@ dependencies {
     implementation "com.fasterxml.jackson.core:jackson-databind:2.13.2.2"
     implementation 'org.apache.commons:commons-csv:1.9.0'
     implementation 'com.squareup.okhttp:okhttp:2.7.5'
+    implementation 'com.jsoniter:jsoniter:0.9.23'
 
     compileOnly "org.projectlombok:lombok:1.18.24"
     annotationProcessor "org.projectlombok:lombok:1.18.24"

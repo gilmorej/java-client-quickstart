@@ -1,5 +1,8 @@
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jsoniter.JsonIterator;
+import com.jsoniter.any.Any;
+import com.jsoniter.spi.TypeLiteral;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
 import org.junit.jupiter.api.Assertions;
@@ -8,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.FileReader;
 import java.io.Reader;
+import java.nio.file.Files;
 import java.util.List;
 import java.util.Map;
 
@@ -50,4 +54,24 @@ public class ExampleTest {
         Assertions.assertEquals("155", data.get(1).get("weight"));
     }
 
+    @Test
+    void testJsonParse2() throws Exception {
+        //Test that we've set up the gradle project properly and can use the Jackson library
+        ClassLoader classLoader = getClass().getClassLoader();
+        File testJSONFile = new File(classLoader.getResource("test.json").getFile());
+        String fileContent = Files.readString(testJSONFile.toPath());
+        Any data = JsonIterator.deserialize(fileContent);
+        Assertions.assertEquals(3, data.size());
+        Assertions.assertEquals("3.654", data.get(1).toString("GPA"));
+        Assertions.assertEquals("1", data.get(1).toString("Gender"));
+        Assertions.assertEquals("1", data.get(1).toString("breakfast"));
+        Assertions.assertEquals("2", data.get(1).toString("coffee"));
+        Assertions.assertEquals("1", data.get(1).toString("exercise"));
+        Assertions.assertEquals("2", data.get(1).toString("drink"));
+        Assertions.assertEquals("chocolate, chips, ice cream", data.get(1).toString("comfort_food"));
+        Assertions.assertEquals("1", data.get(1).toString("sports"));
+        Assertions.assertEquals("155", data.get(1).toString("weight"));
+    }
+
 }
+
