@@ -3,7 +3,7 @@
 Command Line Java application to act as an HTTP client
 
 ## Requirements
-* JDK 1.8 or higher
+* JDK 11 or higher
 
 ## Running
 
