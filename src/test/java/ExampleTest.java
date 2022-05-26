@@ -73,5 +73,20 @@ public class ExampleTest {
         Assertions.assertEquals("155", data.get(1).toString("weight"));
     }
 
+    @Test
+    void testJsonParse3() throws Exception {
+        String json = "[{\"key1\":1,\"key2\":2},{\"key3\":3}]";
+        List<Map<String, Integer>> parsed;
+        try (JsonIterator jsonIterator = JsonIterator.parse(json)) {
+            parsed = jsonIterator.read(new TypeLiteral<>() {});
+        }
+        Assertions.assertEquals(2, parsed.size());
+        Assertions.assertEquals(2, parsed.get(0).size());
+        Assertions.assertEquals(1, parsed.get(0).get("key1"));
+        Assertions.assertEquals(2, parsed.get(0).get("key2"));
+        Assertions.assertEquals(1, parsed.get(1).size());
+        Assertions.assertEquals(3, parsed.get(1).get("key3"));
+    }
+
 }
 
