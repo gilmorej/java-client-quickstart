@@ -75,7 +75,17 @@ public class ExampleTest {
 
     @Test
     void testJsonParse3() throws Exception {
-        String json = "[{\"key1\":1,\"key2\":2},{\"key3\":3}]";
+        String json = """
+            [
+                {
+                    "key1": 1,
+                    "key2": 2
+                },
+                {
+                    "key3": 3
+                }
+            ]
+        """;
         List<Map<String, Integer>> parsed;
         try (JsonIterator jsonIterator = JsonIterator.parse(json)) {
             parsed = jsonIterator.read(new TypeLiteral<>() {});
